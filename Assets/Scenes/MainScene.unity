@@ -766,7 +766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.959589, y: -1.8866973, z: -10}
+  m_LocalPosition: {x: -2.2807617, y: -1.88409, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 557752110}
   - component: {fileID: 557752109}
   - component: {fileID: 557752113}
+  - component: {fileID: 557752114}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -984,7 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 557752107}
-  animator: {fileID: 0}
+  animator: {fileID: 557752114}
   moveSpeed: 45
   warn: {fileID: 352276159}
   PlayerEnabled: 1
@@ -1010,7 +1011,27 @@ MonoBehaviour:
   damage: 1
   impactEffect: {fileID: 0}
   line: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 557752114}
+--- !u!95 &557752114
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557752104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3658916d3b4b3e42988b2f69d4b96d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &603079017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7144491680186053120, guid: 38918b72872432448af36a8fc1df4147, type: 3}

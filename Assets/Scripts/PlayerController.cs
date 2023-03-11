@@ -70,7 +70,9 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
             }
-            catch (Exception e) { }
+            catch (Exception e) { 
+            
+            }
             if (Input.GetKeyDown("left shift"))
             {
                 if (Mathf.Abs(horizontalMove) > 0.01)
