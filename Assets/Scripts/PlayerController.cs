@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,13 @@ public class PlayerController : MonoBehaviour
         if (!isDie)
         {
             PlayerHealth -= damage;
-            animator.SetTrigger("Hurt");
+
+            try
+            {
+                animator.SetTrigger("Hurt");
+            }
+            catch (Exception e) { }
+            
             if (PlayerHealth <= 0)
             {
                 isDie = true;
@@ -36,7 +43,12 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         isDie = true;
-        animator.SetTrigger("Die");
+        try
+        {
+            animator.SetTrigger("Die");
+        }
+        catch (Exception e) { }
+        
         this.tag = "PlayerDie";
     }
     void Start()
@@ -54,12 +66,21 @@ public class PlayerController : MonoBehaviour
         if (PlayerEnabled && !isDie)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed + incrementSpeed;
-            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            try
+            {
+                animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            }
+            catch (Exception e) { }
             if (Input.GetKeyDown("left shift"))
             {
                 if (Mathf.Abs(horizontalMove) > 0.01)
                 {
-                    animator.SetBool("IsRun", true);
+                    try
+                    {
+                        animator.SetBool("IsRun", true);
+                    }
+                    catch (Exception e) { }
+                    
                     if (instance.transform.rotation.y < 0)
                     {
                         incrementSpeed = -10;
@@ -72,13 +93,23 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyUp("left shift"))
             {
-                animator.SetBool("IsRun", false);
+                try
+                {
+                    animator.SetBool("IsRun", false);
+                }
+                catch (Exception e) { }
+                
                 incrementSpeed = 0;
             }
             if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
-                animator.SetBool("IsJump", true);
+                try
+                {
+                    animator.SetBool("IsJump", true);
+                }
+                catch (Exception e) { }
+
             }
           
         } else
@@ -98,7 +129,12 @@ public class PlayerController : MonoBehaviour
     public void OnLanding()
     {
         //StartCoroutine(WaitJump());
-        animator.SetBool("IsJump", false);
+        try
+        {
+            animator.SetBool("IsJump", false);
+        }
+        catch (Exception e) { }
+
     }
     private void FixedUpdate()
     {

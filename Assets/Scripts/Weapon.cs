@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +26,13 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        player.SetTrigger("Shoot");
+        try
+        {
+            player.SetTrigger("Shoot");
+        } catch (Exception e)
+        {
+            
+        }
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
